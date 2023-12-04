@@ -5,7 +5,7 @@ const App = () => {
 
   return (
     <div>
-      {api.key}
+      <p>Simple react Weather App with OpenWeatherMap Api ({api.base})</p>
     </div>
   );
 }
