@@ -1,11 +1,9 @@
-import { useSelector } from "react-redux";
+import Search from "./Components/Search/Search";
 
 const App = () => {
-  const api = useSelector((state) => state.api)
-
   return (
     <div>
-      <p>Simple react Weather App with OpenWeatherMap Api ({api.base})</p>
+      <Search />
     </div>
   );
 }
