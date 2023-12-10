@@ -4,9 +4,13 @@ export const weatherSlice = createSlice({
     name: 'weather',
     initialState: {
         city: "",
-        weatherInCity: ""
+        storeCity: false,
+        weatherInCity: {}
     },
     reducers: {
+        rememberCity: (state, action) => {
+            state.storeCity = action.payload;
+        },
         setCity: (state, action) => {
             state.city = action.payload;
         },
@@ -16,5 +20,5 @@ export const weatherSlice = createSlice({
     }
 });
 
-export const { setCity, setWeatherInCity } = weatherSlice.actions;
+export const { setCity, setWeatherInCity, rememberCity, setSearchFromStorage } = weatherSlice.actions;
 export default weatherSlice.reducer;

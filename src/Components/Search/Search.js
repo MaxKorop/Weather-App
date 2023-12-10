@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import InputCity from './InputCity/InputCity';
 import SearchButton from './SearchButton/SearchButton';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCity } from '../../Store/weatherSlice';
+import CityAsDefault from './CityAsDefault/CityAsDefault';
 
-const Search = () => {
-    const weather = useSelector(state => state.weather.weatherInCity);
-
+const Search = ({ onFetched }) => {
     return (
-        <div>
-            <InputCity />
-            <SearchButton />
-            <p>
-                {weather}
-            </p>
+        <div className='mt-5 d-flex flex-column align-items-center' style={{width: "500px"}}>
+            <div className='d-flex flex-row justify-content-between' style={{width: "100%"}}>
+                <InputCity />
+                <SearchButton onFetched={onFetched} />
+            </div>
+            <CityAsDefault />
         </div>
     );
 }

@@ -1,0 +1,70 @@
+.weather-card{
+    background-color: #FFF;
+    box-shadow: 1px 3px 5px 0px #00000040;
+    border-radius: 10px;
+    width: 500px;
+    height: auto;
+    font-weight: 300;
+}
+
+.city{
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+}
+
+.temperature{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 96px;
+    color: #26A3B9;
+}
+
+.main-weather{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.feels{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.weather-clouds{
+    width: 30px;
+    height: 30px;
+    background-image: url('../../assets/cloud.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+.weather-clear{
+    width: 30px;
+    height: 30px;
+    background-image: url('../../assets/clear.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+.weather-mist{
+    width: 30px;
+    height: 30px;
+    background-image: url('../../assets/mist.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+.weather-rain{
+    width: 30px;
+    height: 30px;
+    background-image: url('../../assets/rain.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+.weather-snow{
+    width: 30px;
+    height: 30px;
+    background-image: url('../../assets/snow.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}

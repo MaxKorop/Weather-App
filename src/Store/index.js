@@ -7,4 +7,4 @@ export default configureStore({
         api: apiReducer,
         weather: weatherReducer
     }
-});
+}); 
