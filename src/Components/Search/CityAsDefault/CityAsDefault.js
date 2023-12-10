@@ -16,10 +16,10 @@ const CityAsDefault = () => {
     }, [storeCity, city])
 
     return (
-        <div className='mt-3 mb-3 d-flex justify-content-between' style={{width: "40%"}}>
+        <div className='mt-3 mb-3 d-flex justify-content-between' style={{width: "60%"}}>
             <label htmlFor='save-city' className='label-for-checkbox'>
                 <input type='checkbox' onChange={e => handleCheckbox(!storeCity)} name='save-city' className='save-city' />
-                Save City as default
+                Save City as default (inputted value)
                 <span className='checkmark'></span>
             </label>
         </div>
