@@ -8,14 +8,14 @@ const WeatherDetails = () => {
     const wind = {
         direction: () => {
             const deg = weather.wind.deg
-            if (20 <= deg < 70) return "↗";
-            else if (70 <= deg < 110) return "→";
-            else if (110 <= deg < 160) return "↘";
-            else if (160 <= deg < 200) return "↓";
-            else if (200 <= deg < 250) return "↙";
-            else if (250 <= deg < 290) return "←";
-            else if (290 <= deg < 340) return "↖";
-            else if (340 <= deg <= 360 || 0<= deg < 20) return "↑";
+            if (20 <= deg && deg < 70) return "↗";
+            else if (70 <= deg && deg < 110) return "→";
+            else if (110 <= deg && deg < 160) return "↘";
+            else if (160 <= deg && deg < 200) return "↓";
+            else if (200 <= deg && deg < 250) return "↙";
+            else if (250 <= deg && deg < 290) return "←";
+            else if (290 <= deg && deg < 340) return "↖";
+            else if ((340 <= deg && deg <= 360) || (0<= deg && deg < 20)) return "↑";
         }
     }
 

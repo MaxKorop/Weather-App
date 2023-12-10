@@ -4,7 +4,7 @@ import WeatherCard from "./Components/Weather/WeatherCard";
 
 const App = () => {
   const [showWeather, setShowWeather] = useState(false);
-
+  
   return (
     <div className="d-flex flex-column align-items-center">
       <Search onFetched={setShowWeather}  />
