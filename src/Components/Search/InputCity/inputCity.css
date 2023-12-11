@@ -13,3 +13,9 @@
 .input-city:focus{
     outline: none;
 }
+
+@media screen and (max-width: 768px) {
+    .input-city{
+        width: 90%;
+    }
+}

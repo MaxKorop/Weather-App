@@ -6,7 +6,7 @@ const App = () => {
   const [showWeather, setShowWeather] = useState(false);
   
   return (
-    <div className="d-flex flex-column align-items-center">
+    <div className="d-flex flex-column align-items-center w-100">
       <Search onFetched={setShowWeather}  />
       {showWeather && <WeatherCard />}
     </div>
