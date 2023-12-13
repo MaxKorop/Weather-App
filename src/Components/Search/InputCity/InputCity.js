@@ -1,21 +1,18 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { setCity } from '../../../Store/weatherSlice';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import './inputCity.css';
 
-const InputCity = () => {
-    const city = useSelector(state => state.weather.city);
+const InputCity = ({ city, setCity }) => {
     const storedCity = localStorage.getItem('city');
-    const dispatch = useDispatch();
 
     const handleInputCity = (value) => {
-        dispatch(setCity(value))
+        setCity(value);
     }
 
     useEffect(() => {
-        if (!city && storedCity) dispatch(setCity(storedCity));
-    }, [city, storedCity, dispatch])
+        if (!city && storedCity) setCity(storedCity);
+    }, [city, storedCity])
 
     return (
         <div>
@@ -24,4 +21,16 @@ const InputCity = () => {
     );
 }
 
-export default InputCity;
+const mapStateToProps = (state) => {
+    return {
+        city: state.weather.city
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setCity: (city) => dispatch(setCity(city))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputCity);

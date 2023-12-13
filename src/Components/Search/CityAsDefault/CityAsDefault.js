@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import { rememberCity } from '../../../Store/weatherSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import './cityAsDef.css';
 
-const CityAsDefault = () => {
-    const { city, storeCity } = useSelector(state => state.weather);
-    const dispatch = useDispatch();
+const CityAsDefault = ({ city, storeCity, rememberCity }) => {
     
     const handleCheckbox = (value) => {
-        dispatch(rememberCity(value))
+        rememberCity(value);
     }
 
     useEffect(() => {
@@ -16,7 +14,7 @@ const CityAsDefault = () => {
     }, [storeCity, city])
 
     return (
-        <div className='mt-3 mb-3 d-flex justify-content-between' style={{width: "60%"}}>
+        <div className='mt-3 mb-3 d-flex justify-content-between' style={{ width: "60%" }}>
             <label htmlFor='save-city' className='label-for-checkbox'>
                 <input type='checkbox' onChange={e => handleCheckbox(!storeCity)} name='save-city' className='save-city' />
                 Save City as default (inputted value)
@@ -26,4 +24,17 @@ const CityAsDefault = () => {
     );
 }
 
-export default CityAsDefault;
+const mapStateToProps = (state) => {
+    return {
+        city: state.weather.city,
+        storeCity: state.weather.storeCity
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        rememberCity: (city) => dispatch(rememberCity(city))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CityAsDefault);

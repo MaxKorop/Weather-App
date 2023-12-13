@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import './weatherDetails.css';
 
-const WeatherDetails = () => {
-    const weather = useSelector(state => state.weather.weatherInCity);
+const WeatherDetails = ({ weather }) => {
 
     const wind = {
         direction: () => {
@@ -15,7 +14,7 @@ const WeatherDetails = () => {
             else if (200 <= deg && deg < 250) return "↙";
             else if (250 <= deg && deg < 290) return "←";
             else if (290 <= deg && deg < 340) return "↖";
-            else if ((340 <= deg && deg <= 360) || (0<= deg && deg < 20)) return "↑";
+            else if ((340 <= deg && deg <= 360) || (0 <= deg && deg < 20)) return "↑";
         }
     }
 
@@ -30,7 +29,7 @@ const WeatherDetails = () => {
 
             <div className='weather-details w-100 d-flex justify-content-between'>
                 <p className='mb-1'>Wind</p>
-                <p className='mb-1'>{ wind.direction() }{weather.wind.speed} m/s</p>
+                <p className='mb-1'>{wind.direction()}{weather.wind.speed} m/s</p>
             </div>
 
             <div className='weather-details w-100 d-flex justify-content-between'>
@@ -51,4 +50,10 @@ const WeatherDetails = () => {
     );
 }
 
-export default WeatherDetails;
+const mapStateToProps = (state) => {
+    return {
+        weather: state.weather.weatherInCity
+    }
+}
+
+export default connect(mapStateToProps)(WeatherDetails);
